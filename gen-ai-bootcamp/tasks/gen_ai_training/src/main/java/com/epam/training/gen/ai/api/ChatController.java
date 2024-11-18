@@ -4,6 +4,7 @@ import com.epam.training.gen.ai.model.api.ApiResponse;
 import com.epam.training.gen.ai.service.AzureChatCompletionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,9 +21,9 @@ public class ChatController {
     private final AzureChatCompletionService chatCompletionService;
 
     @PostMapping
-    public ApiResponse<List<String>> generateChat(@RequestParam(value = "prompt") String prompt) {
+    public ResponseEntity<ApiResponse<List<String>>> generateChat(@RequestParam(value = "prompt") String prompt) {
         log.info("Received chat prompt: [{}]", prompt);
         var chatResponse = this.chatCompletionService.getChatResponse(prompt);
-        return new ApiResponse<>(chatResponse);
+        return ResponseEntity.ok(new ApiResponse<>(chatResponse));
     }
 }

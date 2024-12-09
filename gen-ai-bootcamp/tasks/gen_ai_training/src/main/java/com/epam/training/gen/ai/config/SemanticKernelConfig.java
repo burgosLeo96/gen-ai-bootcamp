@@ -9,6 +9,7 @@ import com.microsoft.semantickernel.services.AIServiceCollection;
 import com.microsoft.semantickernel.services.AIServiceSelector;
 import com.microsoft.semantickernel.services.OrderedAIServiceSelector;
 import com.microsoft.semantickernel.services.chatcompletion.ChatCompletionService;
+import com.microsoft.semantickernel.services.textcompletion.TextGenerationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,11 +19,12 @@ import java.util.function.Function;
 public class SemanticKernelConfig {
 
     @Bean
-    public Kernel semanticKernel(ChatCompletionService chatCompletionService) {
+    public Kernel semanticKernel(ChatCompletionService chatCompletionService, TextGenerationService textGenerationService) {
         Function<AIServiceCollection, AIServiceSelector> serviceSelector = OrderedAIServiceSelector::new;
 
         return Kernel.builder()
                 .withAIService(ChatCompletionService.class, chatCompletionService)
+                .withAIService(TextGenerationService.class, textGenerationService)
                 .withServiceSelector(serviceSelector)
                 .build();
     }

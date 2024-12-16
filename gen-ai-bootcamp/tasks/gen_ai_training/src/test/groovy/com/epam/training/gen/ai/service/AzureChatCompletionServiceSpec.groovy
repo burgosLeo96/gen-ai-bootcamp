@@ -1,5 +1,6 @@
 package com.epam.training.gen.ai.service
 
+import com.epam.training.gen.ai.service.chatcompletion.AzureChatCompletionService
 import com.microsoft.semantickernel.Kernel
 import com.microsoft.semantickernel.orchestration.InvocationContext
 import com.microsoft.semantickernel.services.chatcompletion.AuthorRole

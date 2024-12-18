@@ -5,6 +5,7 @@ import com.microsoft.semantickernel.orchestration.InvocationContext;
 import com.microsoft.semantickernel.orchestration.InvocationReturnMode;
 import com.microsoft.semantickernel.orchestration.PromptExecutionSettings;
 import com.microsoft.semantickernel.orchestration.ToolCallBehavior;
+import com.microsoft.semantickernel.plugin.KernelPlugin;
 import com.microsoft.semantickernel.services.AIServiceCollection;
 import com.microsoft.semantickernel.services.AIServiceSelector;
 import com.microsoft.semantickernel.services.OrderedAIServiceSelector;
@@ -19,13 +20,17 @@ import java.util.function.Function;
 public class SemanticKernelConfig {
 
     @Bean
-    public Kernel semanticKernel(ChatCompletionService chatCompletionService, TextGenerationService textGenerationService) {
+    public Kernel semanticKernel(
+            ChatCompletionService chatCompletionService,
+            TextGenerationService textGenerationService,
+            KernelPlugin currencyConverterPlugin) {
         Function<AIServiceCollection, AIServiceSelector> serviceSelector = OrderedAIServiceSelector::new;
 
         return Kernel.builder()
                 .withAIService(ChatCompletionService.class, chatCompletionService)
                 .withAIService(TextGenerationService.class, textGenerationService)
                 .withServiceSelector(serviceSelector)
+                .withPlugin(currencyConverterPlugin)
                 .build();
     }
 

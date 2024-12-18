@@ -1,7 +1,6 @@
 package com.epam.training.gen.ai.api
 
-import com.epam.training.gen.ai.service.AzureChatCompletionService
-import org.springframework.http.HttpStatusCode
+import com.epam.training.gen.ai.service.chatcompletion.AzureChatCompletionService
 import spock.lang.Specification
 
 class ChatControllerSpec extends Specification {

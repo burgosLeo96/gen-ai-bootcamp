@@ -1,4 +1,4 @@
-package com.epam.training.gen.ai.service;
+package com.epam.training.gen.ai.service.chatcompletion;
 
 import com.microsoft.semantickernel.Kernel;
 import com.microsoft.semantickernel.orchestration.InvocationContext;

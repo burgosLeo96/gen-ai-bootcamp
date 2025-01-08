@@ -1,6 +1,6 @@
 package com.epam.training.gen.ai.api;
 
-import com.epam.training.gen.ai.model.api.ApiResponse;
+import com.epam.training.gen.ai.model.api.response.ApiResponse;
 import com.epam.training.gen.ai.service.chatcompletion.AzureChatCompletionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

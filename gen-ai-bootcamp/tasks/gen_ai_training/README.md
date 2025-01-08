@@ -36,6 +36,7 @@ The project integrates Semantic Kernel to provide AI chat completion services. T
 
 - Java 17 or higher
 - Maven 3.6 or higher
+- Docker running in your local machine to run TestContainer
 
 ### Installation
 
@@ -44,15 +45,19 @@ The project integrates Semantic Kernel to provide AI chat completion services. T
     git clone https://github.com/burgosLeo96/gen-ai-bootcamp.git
     cd gen-ai-bootcamp
     ```
+   <br>
 
 2. Add the following environment variables to the project:
-    - `EPAM_DIAL_KEY`: The API key for the Azure Chat Completion service.
-    - `CURRENCY_CONVERTER_API_KEY`: The API key for the Currency Layer service. One API Key should be retrieved after subscribing to https://currencyfreaks.com/
+   - `EPAM_DIAL_KEY`: The API key for the Azure Chat Completion service.
+   - `CURRENCY_CONVERTER_API_KEY`: The API key for the Currency Layer service. One API Key should be retrieved after subscribing to https://currencyfreaks.com/
+
+    <br>
 
 3. Build the project:
     ```sh
     mvn clean install
     ```
+   <br>
 
 4. Run the application:
     ```sh
@@ -62,10 +67,35 @@ The project integrates Semantic Kernel to provide AI chat completion services. T
 ### Usage
 
 - **Chat Completion**: Send a POST request to `/v1/chat` with a `prompt` parameter to get AI-generated chat responses.
+
+
 - **Currency Conversion**: Ask the model to convert from once currency to other. Send the request in the following format: **amount** **fromCurrency** to **toCurrency**.
 
-Example:
-Convert 100 USD to EUR
+  Example:
+  Convert 100 USD to EUR
+
+
+- **Embeddings API**: The application provides an API to build, store, and search embeddings.
+   - Build and Store Embedding: To build and store an embedding, send a POST request to /v1/embeddings with the following JSON body:
+        ```json
+        {
+        "text": "Your text here"
+        }
+        ```
+
+   - Search for Closest Embeddings: To search for the closest embedding, send a GET request to /v1/embeddings with the text query parameter:
+       ```sh
+       /v1/embeddings?text=Your text here
+       ```
+
+   - Build Embedding: To build an embedding without storing it, send a POST request to /v1/embeddings/build with the following JSON body:
+        ```json
+        {
+        "text": "Your text here"
+        }
+        ```
+
+<br>
 
 ## License
 

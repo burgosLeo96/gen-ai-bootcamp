@@ -1,11 +1,12 @@
-# AI Chat and Currency Conversion Service
+# AI Chat, Currency Conversion and Embeddings Service
 
-This project is a Spring Boot application that provides AI chat completion and currency conversion services. It leverages Microsoft's Semantic Kernel to handle AI-related tasks.
+This project is a Spring Boot application that provides AI chat completion, currency conversion and embeddings services. It leverages Microsoft's Semantic Kernel to handle AI-related tasks.
 
 ## Features
 
 - **AI Chat Completion**: Uses the `ChatCompletionService` to generate chat responses based on user prompts.
 - **Currency Conversion**: Converts currency amounts using real-time exchange rates.
+- **Embeddings API**: Builds, stores, and searches for embeddings in a QDrant DB instance.
 
 ## Technologies Used
 

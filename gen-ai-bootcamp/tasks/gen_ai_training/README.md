@@ -7,6 +7,7 @@ This project is a Spring Boot application that provides AI chat completion, curr
 - **AI Chat Completion**: Uses the `ChatCompletionService` to generate chat responses based on user prompts.
 - **Currency Conversion**: Converts currency amounts using real-time exchange rates.
 - **Embeddings API**: Builds, stores, and searches for embeddings in a QDrant DB instance.
+- **RAG API**: Generates text based on the knowledge sources. The knowledge source is the boy who cries the wolf tale.
 
 ## Technologies Used
 
@@ -14,12 +15,15 @@ This project is a Spring Boot application that provides AI chat completion, curr
 - Spring Boot
 - Maven
 - Semantic Kernel
+- QDrantDB TestContainer
 
 ## Project Structure
 
-- `config`: Contains configuration classes for setting up the Semantic Kernel and other beans.
-- `service`: Contains service classes for chat completion and currency conversion.
+- `config`: Contains configuration classes for setting up the Semantic Kernel, QDrant, and other beans.
+- `service`: Contains service classes for chat completion, currency conversion, and QDrant operations.
 - `api`: Contains REST controllers for handling API requests.
+- `rag`: Contains classes related to the Retrieval-Augmented Generation (RAG) configuration and operations.
+- `resources`: Contains resource files such as the boy-who-cries-the-wolf.txt file used for RAG.
 
 ## Semantic Kernel Integration
 
@@ -30,6 +34,8 @@ The project integrates Semantic Kernel to provide AI chat completion services. T
 - **Kernel Configuration**: The `SemanticKernelConfig` class configures the `Kernel` with necessary services and plugins.
 - **Chat Completion Service**: The `AzureChatCompletionService` class uses the `ChatCompletionService` from Semantic Kernel to generate chat responses.
 - **Invocation Context**: The `InvocationContext` is used to manage the context of AI service invocations.
+- **QDrant Service**: The `QDrantService` class handles operations related to the QDrant vector database.
+- **RAG Configuration**: The `RAGConfig` class sets up the Retrieval-Augmented Generation (RAG) data source and imports the source file.
 
 ## Getting Started
 
@@ -97,6 +103,9 @@ The project integrates Semantic Kernel to provide AI chat completion services. T
         ```
 
 <br>
+
+- **RAG API**: The application provides an API to generate text based on the knowledge sources. The knowledge source for this API is a text file
+    containing the tale of the boy who cries the wolf. Send a POST request to `/v1/rag` with a `prompt` parameter to get chat responses based on RAG datasource.
 
 ## License
 

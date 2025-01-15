@@ -1,7 +1,7 @@
 package com.epam.training.gen.ai.api;
 
 import com.azure.ai.openai.models.EmbeddingItem;
-import com.epam.training.gen.ai.config.services.EmbeddingsService;
+import com.epam.training.gen.ai.service.embedding.EmbeddingsService;
 import com.epam.training.gen.ai.model.api.request.EmbeddingRequest;
 import com.epam.training.gen.ai.model.api.response.ApiResponse;
 import com.epam.training.gen.ai.model.api.response.EmbeddingResponse;
